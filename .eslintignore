@@ -3,3 +3,5 @@ build
 coverage
 !/.storybook
 react-app-env.d.ts
+
+storybook-static
