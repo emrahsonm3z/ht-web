@@ -10,13 +10,14 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
-    "typescript": "3.6.3"
+    "typescript": "3.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "coverage": "yarn run test -- --coverage",
     "lint:ts": "tsc && eslint src/**/*.{ts,tsx}",
     "lint:css": "stylelint --syntax scss src/**/*.scss",
     "lint": "yarn run lint:ts && yarn run lint:css",
@@ -43,11 +44,39 @@
   "devDependencies": {
     "@atolye15/eslint-config": "^1.0.17",
     "@atolye15/stylelint-config": "^1.2.0",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.2",
     "eslint": "^6.5.1",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
     "prettier-stylelint": "^0.4.2",
+    "react-test-renderer": "^16.10.2",
     "stylelint": "^11.0.0",
-    "stylelint-config-prettier": "^6.0.0"
+    "stylelint-config-prettier": "^6.0.0",
+    "stylelint-prettier": "^1.1.1"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/index.tsx",
+      "!src/setupTests.ts",
+      "!src/components/**/index.{ts,tsx}",
+      "!src/components/**/*.stories.{ts,tsx}",
+      "!src/routes/**/index.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   }
 }
