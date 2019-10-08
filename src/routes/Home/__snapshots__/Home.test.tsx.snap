@@ -3,7 +3,7 @@
 exports[`renders correctly 1`] = `
 <div>
   <h1>
-    Home page
+    Home page 2222
   </h1>
   <Link
     to="/feed"

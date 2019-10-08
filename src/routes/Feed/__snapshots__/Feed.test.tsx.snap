@@ -3,7 +3,7 @@
 exports[`renders correctly 1`] = `
 <div>
   <h1>
-    Feed
+    Feed 333
   </h1>
   <Link
     to="/"
