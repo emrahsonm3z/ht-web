@@ -17,11 +17,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "yarn run lint:ts",
-    "lint:ts": "tsc && yarn lint:eslint",
-    "lint:eslint": "eslint src/**/*.{ts,tsx}",
-    "format:ts": "prettier --write src/**/*.{ts,tsx} && yarn lint:eslint --fix",
-    "format": "yarn run format:ts",
+    "lint:ts": "tsc && eslint src/**/*.{ts,tsx}",
+    "lint:css": "stylelint --syntax scss src/**/*.scss",
+    "lint": "yarn run lint:ts && yarn run lint:css",
+    "format:ts": "prettier --write src/**/*.{ts,tsx} && eslint --fix src/**/*.{ts,tsx}",
+    "format:css": "prettier-stylelint --quiet --write src/**/*.scss",
+    "format": "yarn run format:ts && yarn run format:css",
     "format:check": "prettier -c src/**/*.{ts,tsx}"
   },
   "eslintConfig": {
@@ -41,7 +42,12 @@
   },
   "devDependencies": {
     "@atolye15/eslint-config": "^1.0.17",
+    "@atolye15/stylelint-config": "^1.2.0",
     "eslint": "^6.5.1",
-    "prettier": "^1.18.2"
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint": "^11.0.0",
+    "stylelint-config-prettier": "^6.0.0"
   }
 }

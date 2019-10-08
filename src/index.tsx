@@ -1,6 +1,19 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import { setConfig } from "react-hot-loader";
+import { BrowserRouter } from "react-router-dom";
+
 import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+setConfig({
+  ignoreSFC: true,
+  pureRender: true,
+});
+
+const Root: FunctionComponent = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+ReactDOM.render(<Root />, document.getElementById("root"));
